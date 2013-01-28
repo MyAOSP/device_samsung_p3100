@@ -22,17 +22,17 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Audio
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/espressorf \
-	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/espressorf \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Packages
 PRODUCT_PACKAGES += \
-	SamsungServiceMode
+    SamsungServiceMode
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.telephony.ril_class=Smdk4210RIL \
-	mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
+    ro.telephony.ril_class=SamsungExynos4RIL \
+    mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -41,4 +41,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Use the non-open-source parts, if they're present
-$(call inherit-product, vendor/samsung/p31xx/p3100-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/p31xx/p3100-vendor.mk)

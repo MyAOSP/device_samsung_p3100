@@ -1,3 +1,4 @@
-system/lib/libril.so
-system/lib/libsec-ril.so
-system/lib/libsecril-client.so
+lib/libril.so
+lib/libsec-ril.so
+lib/libsecril-client.so
+lib/hw/sensors.omap4.so

@@ -18,6 +18,7 @@
 # by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
 
+TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -57,8 +58,12 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 # HWComposer
 BOARD_USES_HWCOMPOSER := true
+BOARD_USE_SYSFS_VSYNC_NOTIFICATION := true
 # set if the target supports FBIO_WAITFORVSYNC
 TARGET_HAS_WAITFORVSYNC := true
+
+# Camera
+COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 # Vold
 BOARD_VOLD_MAX_PARTITIONS := 12
@@ -82,15 +87,19 @@ WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/wifi/bcmdhd_p2p.bin"
 WIFI_DRIVER_MODULE_NAME          := "dhd"
 WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
 WIFI_BAND                        := 802_11_ABG
+BOARD_LEGACY_NL80211_STA_EVENTS  := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/p3100/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/p3100/bluetooth/vnd_espresso.txt
 
 # Security
 BOARD_USES_SECURE_SERVICES := true
 
 # Recovery
+TARGET_RECOVERY_INITRC := device/samsung/p3100/recovery.rc
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun0/file"
 BOARD_USES_MMCUTILS := true

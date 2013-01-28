@@ -23,5 +23,8 @@ TARGET_BOARD_INFO_FILE := device/samsung/p3100/board-info.txt
 TARGET_KERNEL_SOURCE := kernel/samsung/espresso10
 TARGET_KERNEL_CONFIG := cyanogenmod_p3100_defconfig
 
+# Prebuilt Kernel Fallback
+#TARGET_PREBUILT_KERNEL := device/samsung/p3100/kernel
+
 # assert
 TARGET_OTA_ASSERT_DEVICE := p3100,GT-P3100,espressorf,espressorfxx
